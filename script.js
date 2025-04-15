@@ -38,36 +38,12 @@ async function entregarPacote() {
 }
 
 async function simulaEntrega() {
-    // Mostrar as informações de origem, tempo e destino
-    const infoEntrega = document.getElementById("info-entrega");
-    infoEntrega.style.display = "flex"; // Mostrar as informações durante a entrega
-
-    document.getElementById("origem-entrega").textContent = "Sede da Transportadora";
-    document.getElementById("destino-entrega").textContent = `${fila[0].cidade}, ${fila[0].pais}`;
-
-    tempoEntrega = (Math.floor(Math.random() * 10) + 1) * 1000;
-    console.log(tempoEntrega)
-
-    const tempoTexto = document.getElementById("tempo-entrega");
-    let segundosRestantes = Math.floor(tempoEntrega / 1000);
-    tempoTexto.textContent = `⏳ ${segundosRestantes}s`;
-
-    const intervaloTempo = setInterval(() => {
-        segundosRestantes--;
-        if (segundosRestantes > 0) {
-            tempoTexto.textContent = `⏳ ${segundosRestantes}s`;
-        } else {
-            clearInterval(intervaloTempo);
-            tempoTexto.textContent = "✅ Pedido entregue";
-        }
-    }, 1000);
     await new Promise(resolve => {
+        tempoEntrega = (Math.floor(Math.random() * 10) + 1) * 1000;
+        console.log(tempoEntrega)
         setTimeout(resolve, tempoEntrega)      
         progrideBarra(tempoEntrega)
     })
-
-    // Ocultar as informações de entrega após a conclusão
-    infoEntrega.style.display = "none"; // Ocultar as informações após a entrega
 }
 
 function progrideBarra(tempoEntrega) {
