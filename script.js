@@ -25,6 +25,7 @@ async function adicionarPacote() {
 async function entregarPacote() {
     botao = document.getElementById('entregar-pacote')
     botao.disabled = true
+    botao.classList.add('ativado')
     if((fila.length) > 0){
         await simulaEntrega()
         filaEntrega.push(fila[0])
@@ -32,6 +33,7 @@ async function entregarPacote() {
         atualizarHistorico()
         atualizarFila();
     }
+    botao.classList.remove('ativado')
     botao.disabled = false
 }
 
