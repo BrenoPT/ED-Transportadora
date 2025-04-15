@@ -1,5 +1,5 @@
 # ED-Transportadora
-![image](https://github.com/user-attachments/assets/2f47c78d-b8be-4e70-8d42-d5d81efaf987)
+![image](https://github.com/user-attachments/assets/77a9471f-1d7d-4325-a5c2-e3c14fbd6d87)
 Simulador de transportadora de pacotes utilizando consumo de APIs e conceitos de fila.
 # Instruções
 Clicando no botão "Adicionar Pacote", um pacote será adicionado com um ID, nome e endereço do destinatário.
