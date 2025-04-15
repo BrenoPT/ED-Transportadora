@@ -39,8 +39,24 @@ async function simulaEntrega() {
     await new Promise(resolve => {
         tempoEntrega = (Math.floor(Math.random() * 10) + 1) * 1000;
         console.log(tempoEntrega)
-        setTimeout(resolve, tempoEntrega)
+        setTimeout(resolve, tempoEntrega)      
+        progrideBarra(tempoEntrega)
     })
+}
+
+function progrideBarra(tempoEntrega) {
+    const progresso = document.getElementById('barra-progresso')
+    const porcentagem = document.getElementById('porcentagem-progresso')
+    let intervalo = setInterval(function() {
+        progresso.value = progresso.value + 1;
+        porcentagem.innerHTML = `${progresso.value}%`
+    
+        if (progresso.value == 100) {
+          clearInterval(intervalo);
+          progresso.value = 0
+          porcentagem.innerHTML = '0%'
+        }
+      }, tempoEntrega/100);
 }
 
 // Atualiza visualmente a lista da fila
