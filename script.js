@@ -1,4 +1,5 @@
 const fila = [];
+const filaEntrega = []
 let idPacote = 1;
 
 const filaElement = document.getElementById("fila");
@@ -19,6 +20,7 @@ async function adicionarPacote() {
   
     fila.push(pacote);
     atualizarFila();
+}
 
 async function entregarPacote() {
     botao = document.getElementById('entregar-pacote')
@@ -92,7 +94,16 @@ function atualizarFila() {
       filaElement.appendChild(li);
     });
 }
-  
 
+function atualizarHistorico() {
+    historicoElement.innerHTML = "";
+    filaEntrega.forEach((p) => {
+      const li = document.createElement("li");
+      li.textContent = `#${p.id.toString().padStart(3, '0')} - ${p.nome} (${p.cidade}, ${p.pais})`;
+      historicoElement.appendChild(li);
+    });
+}
+  
 // Botões
 document.getElementById("add-pacote").addEventListener("click", adicionarPacote);
+document.getElementById("entregar-pacote").addEventListener("click", entregarPacote);
