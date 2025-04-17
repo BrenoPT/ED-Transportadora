@@ -45,7 +45,7 @@ async function simulaEntrega() {
     infoEntrega.style.display = "flex"
     document.getElementById("origem-entrega").textContent = "Sede da Transportadora"
     document.getElementById("destino-entrega").textContent = `${fila[0].cidade}, ${fila[0].pais}`
-    tempoEntrega = (Math.floor(Math.random() * 10) + 1) * 1000
+    const tempoEntrega = (Math.floor(Math.random() * 10) + 1) * 1000
     const tempoTexto = document.getElementById("tempo-entrega")
     let segundosRestantes = Math.floor(tempoEntrega / 1000)
     tempoTexto.textContent = `⏳ ${segundosRestantes}s`
