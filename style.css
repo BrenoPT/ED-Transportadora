@@ -70,8 +70,9 @@ ul {
 }
 
 li {
-  padding: 10px 0;
-  border-bottom: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 1rem;
+  border: none;
 }
 
 /* Barra de progresso */
@@ -124,4 +125,21 @@ progress::-moz-progress-bar {
 
 .ativado {
   background: #7c7c7c;
+}
+
+.entregando {
+  background: linear-gradient(90deg, #c3ffc1 40%, #a0ff94, #c3ffc1 60%);
+  animation: 
+    gradient-move 2s infinite linear alternate;
+  background-size: 200% 100%;
+}
+
+@keyframes gradient-move {
+  0% {
+      background-position: 0% 0%;
+  }
+
+  100% {
+      background-position: 100% 0%;
+  }
 }
