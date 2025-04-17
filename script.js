@@ -50,13 +50,13 @@ async function simulaEntrega() {
     let segundosRestantes = Math.floor(tempoEntrega / 1000)
     tempoTexto.textContent = `⏳ ${segundosRestantes}s`
     const intervaloTempo = setInterval(() => {
-        segundosRestantes--
         if (segundosRestantes > 0) {
             tempoTexto.textContent = `⏳ ${segundosRestantes}s`
         } else {
             clearInterval(intervaloTempo)
             tempoTexto.textContent = "✅ Pedido entregue"
         }
+        segundosRestantes--
     }, 1000)
     await new Promise(resolve => {
         setTimeout(resolve, tempoEntrega)
